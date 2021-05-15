@@ -8,5 +8,5 @@ def file_hex(file):
     :param file: file to dump hex
     :return:
     """
-    hex = dump_file_hex(file)
-    info(f'hex: {hex}')
+    _hex = dump_file_hex(file)
+    info(f'hex: {_hex}')

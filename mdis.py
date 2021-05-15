@@ -2,8 +2,14 @@
 
 from logger import err, info
 from cmd import set_up_arguments, parser, call_command
+from reader import dump_file_hex_with_locs
+from parser import find, parse_bytes
 
 if __name__ == '__main__':
+    dump = dump_file_hex_with_locs("/Users/elon/print.mpy")
+    _bytes = parse_bytes(dump, "0x00000000", "0x00000020")
+    info(_bytes)
+"""
     set_up_arguments()
     args = parser.parse_args()
 
@@ -22,3 +28,4 @@ if __name__ == '__main__':
     elif to_dump:
         info(f'dumping {to_dump}')
         call_command('-fhx', to_dump)
+"""

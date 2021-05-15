@@ -3,8 +3,6 @@ This file is adapted from MicroPython's bc0.h
 
 https://github.com/micropython/micropython/blob/master/py/bc0.h
 """
-from logger import info
-
 MP_BC_MASK_FORMAT = 0xf0
 MP_BC_MASK_EXTRA_BYTE = 0x9e
 

@@ -1,4 +1,5 @@
 from hexdump import genchunks, dump, hexdump
+from io import read_file
 
 
 def dump_file_hex(file):
@@ -12,15 +13,6 @@ def dump_file_hex(file):
 
 def dump_file_hex_with_locs(file):
     return hexdump(read_file(file), result='return')
-
-
-def read_file(file):
-    """
-    Read a file and return the stream
-    :param file: file to read
-    :return: stream
-    """
-    return open(file, "rb")
 
 
 def generate_hex(data):
