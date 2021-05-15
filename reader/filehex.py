@@ -1,4 +1,4 @@
-from hexdump import hexdump
+from hexdump import genchunks, dump
 
 
 def dump_file_hex(file):
@@ -7,7 +7,7 @@ def dump_file_hex(file):
     :param file:
     :return: hex
     """
-    return hexdump(read_file(file), result='return')
+    return '\n'.join(generate_hex(read_file(file)))
 
 
 def read_file(file):
@@ -17,3 +17,17 @@ def read_file(file):
     :return: stream
     """
     return open(file, "rb")
+
+
+def generate_hex(data):
+    """
+    A modified version of hexdump's dumpgen to only generate bytes, without format.
+    """
+    generator = genchunks(data, 16)
+    for addr, d in enumerate(generator):
+        dump_str = dump(d, sep='\00')
+        line = dump_str[:8 * 3]
+        if len(d) > 8:
+            line += dump_str[8 * 3:]
+
+        yield line
