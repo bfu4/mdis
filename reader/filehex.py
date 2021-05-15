@@ -1,5 +1,5 @@
 from hexdump import genchunks, dump, hexdump
-from io import read_file
+from mio import read_file
 
 
 def dump_file_hex(file):
