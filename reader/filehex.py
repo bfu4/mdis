@@ -7,7 +7,7 @@ def dump_file_hex(file):
     :param file:
     :return: hex
     """
-    return '\n'.join(generate_hex(read_file(file)))
+    return '\0'.join(generate_hex(read_file(file)))
 
 
 def read_file(file):
