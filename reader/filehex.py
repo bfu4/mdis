@@ -1,4 +1,4 @@
-from hexdump import genchunks, dump
+from hexdump import genchunks, dump, hexdump
 
 
 def dump_file_hex(file):
@@ -8,6 +8,10 @@ def dump_file_hex(file):
     :return: hex
     """
     return '\0'.join(generate_hex(read_file(file)))
+
+
+def dump_file_hex_with_locs(file):
+    return hexdump(read_file(file), result='return')
 
 
 def read_file(file):
