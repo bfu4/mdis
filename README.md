@@ -30,3 +30,4 @@ There are not too many contribution guidelines. Contributions should follow a de
 * termcolor [1.1.0]
 ## References
 * [micropython/py/bc0.h](https://github.com/micropython/micropython/blob/master/py/bc0.h)
+* [micropython/tools/mpy-tool.py#L130](https://github.com/micropython/micropython/blob/605b74f390e1ce9acdbca32d0b3215d37b96852e/tools/mpy-tool.py#L130)
