@@ -1,1 +1,0 @@
-from filemagic import *

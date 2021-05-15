@@ -2,11 +2,13 @@ import argparse
 
 # borrowed usage from @netspooky/inhale
 from cmd.bytecode_format_command import format_to_bytecode
+from cmd.file_hex_command import file_hex
 
 parser = argparse.ArgumentParser(description="mdis.py")
 
 args = [
-    ('-bytecode-format, -bcf', "int", "shift into bytecode format", format_to_bytecode)
+    ('-bytecode-format, -bcf', "int", "shift into bytecode format", format_to_bytecode),
+    ('-file-hex, -fhx', "file", "get hex of a given file", file_hex)
 ]
 
 

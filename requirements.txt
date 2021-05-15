@@ -1,2 +1,4 @@
 filemagic==1.6
+hexdump==3.3
+six==1.16.0
 termcolor==1.1.0
