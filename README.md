@@ -12,6 +12,7 @@ $ python ./mdis.py -h
 |---------|-----------|------|-------------|
 | `-h`, `-help` | none | n/a | show the help menu |
 | `-bcf`, `-bytecode-format` |  int to format | integer | format an integer into the micropython bytecode format |
+| `-file-hex`, `-fhx` | file | name of file | print all bytes of a file (raw) |
 
 ## Contributing
 There are not too many contribution guidelines. Contributions should follow a decent code style and documentation style, and should be verbose with the changes.
