@@ -7,8 +7,8 @@ from cmd.file_hex_command import file_hex
 parser = argparse.ArgumentParser(description="mdis.py")
 
 args = [
-    ('-bytecode-format, -bcf', "int", "shift into bytecode format", format_to_bytecode),
-    ('-file-hex, -fhx', "file", "get hex of a given file", file_hex)
+    ('-bcf', "int", "shift into bytecode format", format_to_bytecode),
+    ('-fhx', "file", "get hex of a given file", file_hex)
 ]
 
 
