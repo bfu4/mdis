@@ -6,9 +6,11 @@ from reader import dump_file_hex_with_locs
 from parser import find, parse_bytes
 
 if __name__ == '__main__':
-    dump = dump_file_hex_with_locs("/Users/elon/print.mpy")
-    _bytes = parse_bytes(dump, "0x00000000", "0x00000020")
-    info(_bytes)
+    dump = dump_file_hex_with_locs("./__test__/firmware.elf")
+    _bytes = parse_bytes(dump, "0x0003BD00", "0x0003BD20")
+    for line in _bytes:
+        info(line)
+
 """
     set_up_arguments()
     args = parser.parse_args()
