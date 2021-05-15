@@ -1,0 +1,2 @@
+filemagic==1.6
+termcolor==1.1.0
