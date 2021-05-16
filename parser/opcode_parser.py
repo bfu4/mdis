@@ -48,12 +48,15 @@ def get_string_from_ops(_bytes, last_byte, instr) -> Tuple[str, str]:
     index = _bytes.index(last_byte)
     _hex = int(str("0x" + _bytes[index]), 16)
     op = get_opcode(_hex)
+    op_value = get_op_value(op)
     ctx = index + 1
-    while get_op_value(op) != 0x00 and ctx < len(_bytes):
+    # todo validity, this is a cheat, should remove for other validity
+    while op_value != 0x00 and 0x4b >= op_value >= 0x40 and ctx < len(_bytes):
         instr += f'\u0020{_bytes[ctx]}'
         last_byte = _bytes[ctx]
         ctx += 1
         if ctx + 1 < len(_bytes):
             _hex = int(str("0x" + _bytes[ctx]), 16)
             op = get_opcode(_hex)
+            op_value = get_op_value(op)
     return last_byte, instr

@@ -5,11 +5,11 @@ from logger import info, excite
 
 if __name__ == '__main__':
 
-    translator = Translator("./__test__/print.mpy")
-    excite(translator.get_magic())
-
     # todo: support for other addresses besides for default base10
-    for line in translator.get_instruction_set():
+
+    translator = Translator("./__test__/firmware.elf")
+    excite(translator.get_magic())
+    for line in translator.get_instructions_at("0x0003B0B0", "0x0003B0D0"):
         info(line)
 """
     set_up_arguments()
