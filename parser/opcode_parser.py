@@ -1,3 +1,5 @@
+import termcolor
+
 from core import get_opcode, get_op_value
 from typing import List, Tuple
 
@@ -19,7 +21,8 @@ def parse_instruction_set(_bytes: List[str]) -> str:
         _hex = int(str("0x" + byte), 16)
         op = get_opcode(_hex)
         if op is not None:
-            instr += f'\n{op}'
+            tip = termcolor.colored(f'(0x{byte})', on_color="on_magenta")
+            instr += f'\n{tip} {op}'
             if _hex == 16:
                 needs_string = True
                 last_byte = byte
