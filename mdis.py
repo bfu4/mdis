@@ -2,7 +2,6 @@
 
 from core import Translator
 from logger import info, excite
-from parser import parse_instruction_set, wrap_parsed_set
 
 if __name__ == '__main__':
 
