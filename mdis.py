@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
 
-from logger import err, info
-from cmd import set_up_arguments, parser, call_command
-from reader import dump_file_hex_with_locs
-from parser import find, parse_bytes
+from core import Translator
+from logger import info, excite
+from parser import parse_instruction_set, wrap_parsed_set
 
 if __name__ == '__main__':
-    dump = dump_file_hex_with_locs("./__test__/firmware.elf")
-    _bytes = parse_bytes(dump, "0x0003BD00", "0x0003BD20")
-    for line in _bytes:
-        info(line)
 
+    # Lambda replaced by def flatten due to E731
+    def flatten(_list): return [item for sublist in _list for item in sublist]
+
+    translator = Translator("/Users/elon/print.mpy")
+    excite(translator.get_magic())
+    _flatten = flatten(translator.get_split_bytes())
+    parsed = parse_instruction_set(_flatten)
+    wrapped = wrap_parsed_set(parsed)
+
+    # todo: support for other addresses besides for default base10
+    for line in translator.get_instructions_at("0x00000000", "0x00000010"):
+        info(line)
 """
     set_up_arguments()
     args = parser.parse_args()

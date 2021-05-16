@@ -144,3 +144,39 @@ MP_BC_CALL_METHOD_VAR_KW = (MP_BC_BASE_VINT_O + 0x07)  # uint
 MP_BC_IMPORT_NAME = (MP_BC_BASE_QSTR_O + 0x0b)  # qstr
 MP_BC_IMPORT_FROM = (MP_BC_BASE_QSTR_O + 0x0c)  # qstr
 MP_BC_IMPORT_STAR = (MP_BC_BASE_BYTE_E + 0x09)
+
+OPCODES = dir()
+
+
+def get(x: int):
+    """
+    Get an opcode by hex
+    :param x: hex
+    :return: opcode
+    """
+    for op in OPCODES:
+        if not op.startswith("__") and not op == "bytecode_format":
+            if eval(op) == x:
+                return op
+
+
+def get_op_value(opcode: str) -> int:
+    """
+    Get the value of an {opcode}
+    :param opcode: name of opcode
+    :return: value if found otherwise -1
+    """
+    if opcode is None or not valid_operation(opcode):
+        return -1
+    for op in OPCODES:
+        if valid_operation(op) and op == opcode:
+            return eval(op)
+
+
+def valid_operation(x: str) -> bool:
+    """
+    Whether or not an opcode is valid
+    :param x: opcode
+    :return: whether or not the supplied opcode is valid
+    """
+    return not x.startswith("__") and not x == "bytecode_format"

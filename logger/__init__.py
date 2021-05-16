@@ -9,6 +9,7 @@ def err(message):
     """
     err_format = termcolor.colored("[!]", "red")
     print(f'{err_format} {message}')
+    exit(1)
 
 
 def info(message):
@@ -19,3 +20,13 @@ def info(message):
     """
     info_format = termcolor.colored(":: ", "blue")
     print(f'{info_format} {message}')
+
+
+def excite(message):
+    """
+    Send an excited message
+    :param message: message to send
+    :return: nothing, print excite message
+    """
+    excite_format = termcolor.colored("(\u0020\u26A1️)", "yellow")
+    print(f'{excite_format} {message}')
