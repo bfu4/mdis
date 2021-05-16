@@ -11,9 +11,6 @@ if __name__ == '__main__':
 
     translator = Translator("./__test__/print.mpy")
     excite(translator.get_magic())
-    _flatten = flatten(translator.get_split_bytes())
-    parsed = parse_instruction_set(_flatten)
-    wrapped = wrap_parsed_set(parsed)
 
     # todo: support for other addresses besides for default base10
     for line in translator.get_instruction_set():
