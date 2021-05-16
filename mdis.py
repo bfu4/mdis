@@ -9,14 +9,14 @@ if __name__ == '__main__':
     # Lambda replaced by def flatten due to E731
     def flatten(_list): return [item for sublist in _list for item in sublist]
 
-    translator = Translator("/Users/elon/print.mpy")
+    translator = Translator("./__test__/print.mpy")
     excite(translator.get_magic())
     _flatten = flatten(translator.get_split_bytes())
     parsed = parse_instruction_set(_flatten)
     wrapped = wrap_parsed_set(parsed)
 
     # todo: support for other addresses besides for default base10
-    for line in translator.get_instructions_at("0x00000000", "0x00000010"):
+    for line in translator.get_instruction_set():
         info(line)
 """
     set_up_arguments()
