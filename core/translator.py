@@ -92,4 +92,5 @@ class Translator:
         return wrap_parsed_set(_set)
 
     def __flatten(self, _list):
+        # Lambda replaced by def flatten due to E731
         return [item for sublist in _list for item in sublist]
