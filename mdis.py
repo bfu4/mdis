@@ -7,10 +7,13 @@ if __name__ == '__main__':
 
     # todo: support for other addresses besides for default base10
 
-    translator = Translator("./__test__/firmware.elf")
+    translator = Translator("./__test__/print.mpy")
+    # translator = Translator("./__test__/firmware.elf")
     excite(translator.get_magic())
-    for line in translator.get_instructions_at("0x0003B0B0", "0x0003B0D0"):
+    for line in translator.get_instruction_set():
         info(line)
+    # for line in translator.get_instructions_at("0x0003B0B0", "0x0003B0D0"):
+    #    info(line)
 """
     set_up_arguments()
     args = parser.parse_args()

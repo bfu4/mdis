@@ -3,6 +3,8 @@ This file is adapted from MicroPython's bc0.h
 
 https://github.com/micropython/micropython/blob/master/py/bc0.h
 """
+from core import switch, Case
+
 MP_BC_MASK_FORMAT = 0xf0
 MP_BC_MASK_EXTRA_BYTE = 0x9e
 
@@ -180,3 +182,32 @@ def valid_operation(x: str) -> bool:
     :return: whether or not the supplied opcode is valid
     """
     return not x.startswith("__") and not x == "bytecode_format"
+
+
+def requires_extra_byte(op_code: int) -> bool:
+    """
+    Check if an opcode requires an extra byte
+    :param op_code: opcode
+    :return: if the code requires an extra byte
+    """
+    if op_code is None or not valid_operation(f'0x{op_code}'):
+        return False
+    # https://github.com/micropython/micropython/blob/47e6c52f0c2bf058c5d099dd2993192e0978e172/py/bc.c#L309
+    valid = [MP_BC_LOAD_GLOBAL, MP_BC_LOAD_NAME, MP_BC_LOAD_ATTR, MP_BC_STORE_ATTR, MP_BC_BASE_QSTR_O]
+    if op_code in valid:
+        return True
+    return False
+
+
+def is_call_function(op_code: int) -> bool:
+    """
+    Check if an opcode is a call function
+    :param op_code: opcode
+    :return: if the code is a call function
+    """
+    if op_code is None or not valid_operation(f'0x{op_code}'):
+        return False
+    valid = [MP_BC_CALL_FUNCTION, MP_BC_CALL_METHOD, MP_BC_CALL_METHOD_VAR_KW, MP_BC_CALL_FUNCTION_VAR_KW]
+    if op_code in valid:
+        return True
+    return False

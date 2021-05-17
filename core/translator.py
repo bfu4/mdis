@@ -76,7 +76,10 @@ class Translator:
         Get the file's instruction set
         :return: set
         """
-        _bytes = self.__flatten(self.get_split_bytes())
+        bl = self.get_split_bytes()
+        # offset of 8, start at first BC_BASE_RESERVED
+        list_with_offset = bl[0][4:]
+        _bytes = self.__flatten([list_with_offset, bl[1]])
         _set = parse_instruction_set(_bytes)
         return wrap_parsed_set(_set)
 
