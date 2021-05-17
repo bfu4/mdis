@@ -8,7 +8,7 @@ def call_command(command, _args):
     :param _args: arguments
     :return:
     """
-    find(command)(_args)
+    find(command)(*_args)
 
 
 def find(switch):

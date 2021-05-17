@@ -1,36 +1,30 @@
 #!/usr/bin/env python3
-
-from core import Translator
-from logger import info, excite
+from cmd import call_command, set_up_arguments, parser
+from logger import err
 
 if __name__ == '__main__':
 
     # todo: support for other addresses besides for default base10
-
-    translator = Translator("./__test__/print.mpy")
-    # translator = Translator("./__test__/firmware.elf")
-    excite(translator.get_magic())
-    for line in translator.get_instruction_set():
-        info(line)
     # for line in translator.get_instructions_at("0x0003B0B0", "0x0003B0D0"):
     #    info(line)
-"""
+
     set_up_arguments()
     args = parser.parse_args()
 
-    to_format = args.int
-    to_dump = args.file
+    to_format = args.INT_TO_BC
+    to_dump = args.FILE
+    to_op = args.INT_TO_OP
+    from_loc = args.FROM
+    to_loc = args.TO
 
-    if not to_format and not to_dump:
+    no_args = not to_format and not to_dump and not to_op
+
+    if no_args:
         err("Missing arguments! Use [-h] for more information.")
 
     if to_format:
-        # handle dec versus hex :thonk:
-        if str(to_format).find("0x") == -1:
-            call_command('-bcf', int(to_format))
-        else:
-            call_command('-bcf', int(to_format, 0))
+        call_command('-b', to_format)
+    elif to_op:
+        call_command('-op', to_op)
     elif to_dump:
-        info(f'dumping {to_dump}')
-        call_command('-fhx', to_dump)
-"""
+        call_command('-f', [(to_dump, from_loc, to_loc)])

@@ -14,6 +14,7 @@ $ python ./mdis.py -h
 |---------|-----------|------|-------------|
 | `-h`, `-help` | none | n/a | show the help menu |
 | `-b INTEGER`|  int to format | integer | format an integer into the micropython bytecode format |
+| `-op INTEGER` | int to get opcode of | integer | get an opcode of a valid integer |
 | `-f FILE` | file | name of file | print all disassembly of a file (raw) |
 | `-fl FILE FROM TO` | file, from, to | name, hex addr | print disassembly of a file from specific addresses. ***constraint: must be a 0 offset address*** |
 
