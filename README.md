@@ -10,17 +10,18 @@ Largely inspired by [DC540's MicroPython Challenge](https://github.com/mytechnot
 $ python ./mdis.py -h
 ```
 
-| command | arguments | type | description |
-|---------|-----------|------|-------------|
-| `-h`, `-help` | none | n/a | show the help menu |
-| `-b INTEGER`|  int to format | integer | format an integer into the micropython bytecode format |
+| argument | type | description |
+|---------|------|-------------|
+| `-h`, `-help` | none | show the help menu |
+| `-b INTEGER`|  int to format  | format an integer into the micropython bytecode format |
 | `-op INTEGER` | int to get opcode of | integer | get an opcode of a valid integer |
-| `-f FILE` | file | name of file | print all disassembly of a file (raw) |
-| `-fl FILE FROM TO` | file, from, to | name, hex addr | print disassembly of a file from specific addresses. ***constraint: must be a 0 offset address*** |
-
+| `-f FILE` | file | supply a file to print disassembly for |
+| `-fr FROM` |  0 offset addr | supply a from address for instruction dump. ***constraint: must be a 0 offset address***. requires to address (`-t`). |
+| `-t TO` |  0 offset addr | supply a to address for instruction dump. ***constraint: must be a 0 offset address***. requires from address (`-fr`). |
 
 ## Contributing
 There are not too many contribution guidelines. Contributions should follow a decent code style and documentation style, and should be verbose with the changes.
+
 
 ### Source Tree
 * `cmd` - cli commands
