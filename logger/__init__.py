@@ -28,5 +28,5 @@ def excite(message):
     :param message: message to send
     :return: nothing, print excite message
     """
-    excite_format = termcolor.colored("(\u0020\u26A1️)", "yellow")
+    excite_format = termcolor.colored("(\u0020\u26A1️\u0020)", "yellow")
     print(f'{excite_format} {message}')
