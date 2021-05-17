@@ -3,6 +3,7 @@ import argparse
 # borrowed usage from @netspooky/inhale
 from cmd.bytecode_format_command import format_to_bytecode
 from cmd.instruction_command import get_instr
+from cmd.opcode_command import get_op
 
 parser = argparse.ArgumentParser(description="mdis.py")
 
@@ -10,7 +11,7 @@ args = [
     ('-b', "INT_TO_BC", "shift into bytecode format", format_to_bytecode, 1),
     ('-f', "FILE", "get instructions of a given file", get_instr, 1),
     # todo
-    ('-op', "INT_TO_OP", "get opcode of a given integer", None, 1),
+    ('-op', "INT_TO_OP", "get opcode of a given integer", get_op, 1),
     ('-fr', "FROM", "from address", None, 1),
     ('-t', "TO", "to address", None, 1)
 ]
