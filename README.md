@@ -86,3 +86,4 @@ This output highlights each opcode's hex value as seen on the left. These values
 * [micropython/py/bc0.h](https://github.com/micropython/micropython/blob/master/py/bc0.h)
 * [micropython/tools/mpy-tool.py#L130](https://github.com/micropython/micropython/blob/605b74f390e1ce9acdbca32d0b3215d37b96852e/tools/mpy-tool.py#L130)
 * [DC540's MicroPython Challenge](https://github.com/mytechnotalent/dc540-0x00002)
+* [Some Bytecode Parsing/Comparison](https://imperialb.in/p/7045f577)
