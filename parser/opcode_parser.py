@@ -41,14 +41,16 @@ def parse_instruction_set(_bytes: List[str]) -> str:
     return instr
 
 
+"""
+todo: 
 def opcode_format(last_byte, count_var_uint: bool) -> Tuple[int, int]:
-    """
+    
     Python implementation of https://github.com/micropython/micropython/blob/47e6c52f0c2bf058c5d099dd2993192e0978e172/py/bc.c#L313
     :param last_byte: last byte (ip)
     :param op_size: size of op
     :param count_var_uint: should we could varuint
     :return: opcode format
-    """
+    
     # TODO: (@bfu4) this is probably wrong, should learn more about what this does and lack of ptr..
     f = bytecode_format(last_byte)
     ip_start = last_byte
@@ -75,6 +77,7 @@ def opcode_format(last_byte, count_var_uint: bool) -> Tuple[int, int]:
         ip += extra_byte
     op_size = ip - ip_start
     return f, op_size
+"""
 
 
 def get_string_from_ops(_bytes, last_byte, instr) -> Tuple[str, str]:
