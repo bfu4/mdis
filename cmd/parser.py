@@ -10,7 +10,6 @@ parser = argparse.ArgumentParser(description="mdis.py")
 args = [
     ('-b', "INT_TO_BC", "shift into bytecode format", format_to_bytecode, 1),
     ('-f', "FILE", "get instructions of a given file", get_instr, 1),
-    # todo
     ('-op', "INT_TO_OP", "get opcode of a given integer", get_op, 1),
     ('-fr', "FROM", "from address", None, 1),
     ('-t', "TO", "to address", None, 1)

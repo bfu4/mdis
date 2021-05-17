@@ -3,6 +3,11 @@ from logger import err, info
 
 
 def get_instr(args):
+    """
+    Get instructions for file with given arguments
+    :param args: arguments
+    :return: none, prints respectively
+    """
     # Weird list parsing
     _len = calculate_real_len(args)
     if _len == 3:
@@ -15,6 +20,11 @@ def get_instr(args):
 
 
 def get_instr_a(file):
+    """
+    Get all instructions of a file
+    :param file: file
+    :return: none
+    """
     # Weird list parsing
     translator = Translator(file[0])
     # todo: buggy
@@ -26,6 +36,13 @@ def get_instr_a(file):
 
 
 def get_instr_s(file, from_loc, to_loc):
+    """
+    Get instructions with location
+    :param file: file
+    :param from_loc: start
+    :param to_loc: end
+    :return: none
+    """
     # Weird list parsing
     translator = Translator(file[0])
     instr = translator.get_instructions_at(from_loc[0], to_loc[0])
@@ -36,6 +53,11 @@ def get_instr_s(file, from_loc, to_loc):
 
 
 def calculate_real_len(args):
+    """
+    Calculate the real length of supplied arguments
+    :param args: args
+    :return: real length
+    """
     i = 0
     for arg in args:
         if arg is not None:

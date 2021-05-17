@@ -3,6 +3,11 @@ from logger import excite, err
 
 
 def get_op(x: str):
+    """
+    Get the opcode of a given number
+    :param x: number
+    :return: none, print opcode
+    """
     to_plug = int(x) if x.find("0x") == -1 else int(x, 16)
     value = get_opcode(to_plug)
     if value is not None:
